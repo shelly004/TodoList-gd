@@ -1,19 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Here is your Todo-list</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <h1>My To do list</h1>
-    <div class="container">
-        <div class="item">
 
+<body>
+
+    <div class="container">
+        <h1>My Todo-List</h1>
+        <div class="item">
+            <input type="text" id="inpt" placeholder="Enter the list items">
+            <button  id="btn" onclick="addList()" >Add to list</button>
+            
         </div>
+        <br>
         <div class="result">
 
         </div>
     </div>
+
+
+    <script src="script.js"></script>
 </body>
+
 </html>

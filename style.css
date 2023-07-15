@@ -1,0 +1,38 @@
+body {
+    background-color: rgb(237, 189, 241);
+}
+
+
+.container {
+
+    text-align: center;
+    justify-content: center;
+
+}
+
+.item {
+
+    background-color: brown;
+    width: 500px;
+    height: 20px;
+    padding: 50px;
+    margin-left: 450px;
+}
+
+#inpt {
+    height: 28px;
+    width: 300px;
+}
+
+#btn {
+    height: 28px;
+    width: 300px;
+}
+
+.result {
+    background-color: rgb(202, 118, 159);
+    width: 500px;
+    height: 500px;
+    padding: 50px;
+    margin-left: 450px;
+}
