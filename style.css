@@ -24,9 +24,13 @@ body {
     width: 300px;
 }
 
-#btn {
-    height: 28px;
-    width: 300px;
+#btn{
+    padding: 7px;
+
+}
+
+#btn:hover{
+    background-color: rgb(237, 237, 224);
 }
 
 .result {
@@ -35,4 +39,5 @@ body {
     height: 500px;
     padding: 50px;
     margin-left: 450px;
+    
 }
