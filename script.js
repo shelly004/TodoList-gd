@@ -1,7 +1,14 @@
 
-let item = document.getElementById('inpt');
+let fieldinpt = document.getElementById('inpt');
 let result = document.getElementById("item");
-let taskArray=localStorage.getItem("items")? JSON.parse(localStorage.getItem("item")):[];
+let taskArray1=localStorage.getItem("items")? JSON.parse(localStorage.getItem("items")):[];
+
+taskArray1.forEach(item=> {
+    var ele = document.createElement("li");
+    var text = document.createTextNode(item);
+    ele.appendChild(text);
+    result.appendChild(ele);
+});
 
 function addValue(data) {
     
@@ -9,15 +16,19 @@ function addValue(data) {
     var text = document.createTextNode(data);
     ele.appendChild(text);
     result.appendChild(ele);
+    
+    let taskArray=localStorage.getItem("items")?JSON.parse(localStorage.getItem("items")):[];    
     taskArray.push(data);
-    item.value = "";
+    taskArray1 = taskArray
+
+    localStorage.setItem("items", JSON.stringify(taskArray));
+    
 }
 
 function addItem() {
     
-    addValue(item.value);
-    localStorage.setItem("items", JSON.stringify("taskArray"));
-    console.log(taskArray);
+    addValue(fieldinpt.value);
+    console.log(taskArray1);
 
 }
 
