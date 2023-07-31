@@ -1,23 +1,23 @@
 
 let item = document.getElementById('inpt');
 let result = document.getElementById("item");
+let taskArray=localStorage.getItem("items")? JSON.parse(localStorage.getItem("item")):[];
 
-function loadText(){
+function addValue(data) {
     
+    var ele = document.createElement("li");
+    var text = document.createTextNode(data);
+    ele.appendChild(text);
+    result.appendChild(ele);
+    taskArray.push(data);
+    item.value = "";
 }
 
 function addItem() {
-    // if (item.length() > 0) {
-    console.log(item.value);    
-    var ele = document.createElement("li");
-        
-        var text = document.createTextNode(item.value);
-        ele.appendChild(text);
-        result.appendChild(ele);
-        localStorage.setItem('text', JSON.stringify(text));
-        item.value="";
-        loadText();
-    // }
-}
+    
+    addValue(item.value);
+    localStorage.setItem("items", JSON.stringify("taskArray"));
+    console.log(taskArray);
 
+}
 
