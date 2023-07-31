@@ -1,32 +1,36 @@
 
 let fieldinpt = document.getElementById('inpt');
 let result = document.getElementById("item");
-let taskArray1=localStorage.getItem("items")? JSON.parse(localStorage.getItem("items")):[];
+let taskArray1 = localStorage.getItem("items") ? JSON.parse(localStorage.getItem("items")) : [];
 
-taskArray1.forEach(item=> {
-    var ele = document.createElement("li");
-    var text = document.createTextNode(item);
-    ele.appendChild(text);
-    result.appendChild(ele);
-});
-
-function addValue(data) {
-    
+function createItem(data) {
     var ele = document.createElement("li");
     var text = document.createTextNode(data);
     ele.appendChild(text);
     result.appendChild(ele);
-    
-    let taskArray=localStorage.getItem("items")?JSON.parse(localStorage.getItem("items")):[];    
+}
+
+
+taskArray1.forEach(item => {
+    createItem(item);
+});
+
+
+
+function addValue(data) {
+
+    createItem(data);
+
+    let taskArray = localStorage.getItem("items") ? JSON.parse(localStorage.getItem("items")) : [];
     taskArray.push(data);
     taskArray1 = taskArray
 
     localStorage.setItem("items", JSON.stringify(taskArray));
-    
+
 }
 
 function addItem() {
-    
+
     addValue(fieldinpt.value);
     console.log(taskArray1);
 
