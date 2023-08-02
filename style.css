@@ -36,8 +36,12 @@ body {
 .result {
     background-color: rgb(202, 118, 159);
     width: 500px;
-    height: 500px;
+    height: 350px;
     padding: 50px;
     margin-left: 450px;
     
+}
+#sort{
+    position: relative;
+    margin-top: 20px;
 }
