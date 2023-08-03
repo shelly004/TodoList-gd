@@ -1,29 +1,28 @@
 let fieldinpt = document.getElementById('inpt');
-let result = document.getElementById("item");
+let result = document.getElementById("item-list");
 let taskArray1 = localStorage.getItem("items") ? JSON.parse(localStorage.getItem("items")) : [];
 
-function createItem(data) {
-    var ele = document.createElement("li");
-    var text = document.createTextNode(data);
-    // text += `<span><button type="button">Delete</button></span>`
+taskArray1.forEach(item => {
+    var ele = document.createElement('li');
+    var text = document.createTextNode(item);
     ele.appendChild(text);
     result.appendChild(ele);
-
-}
-
-taskArray1.forEach(item => {
-    createItem(item);
 });
+
+
 
 function addValue(data) {
 
-    createItem(data);
+    var ele = document.createElement("li");
+    var text = document.createTextNode(data);
+    ele.appendChild(text);
+    result.appendChild(ele);
 
     let taskArray = localStorage.getItem("items") ? JSON.parse(localStorage.getItem("items")) : [];
     taskArray.push(data);
     taskArray1 = taskArray
     localStorage.setItem("items", JSON.stringify(taskArray));
-    fieldinpt.innerHTML = " "
+    fieldinpt.innerHTML = '';
 
 }
 
@@ -33,6 +32,7 @@ function addItem() {
     console.log(taskArray1);
 
 }
+
 
 function sortList() {
     let list = document.getElementById("item-list");
