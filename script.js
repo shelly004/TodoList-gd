@@ -7,6 +7,7 @@ taskArray1.forEach(item => {
     var text = document.createTextNode(item);
     ele.appendChild(text);
     result.appendChild(ele);
+
 });
 
 
@@ -15,14 +16,16 @@ function addValue(data) {
 
     var ele = document.createElement("li");
     var text = document.createTextNode(data);
+    text+=`<button onclick="handleButtonClick(1)">Click me!</button>`;
     ele.appendChild(text);
-    result.appendChild(ele);
 
+    result.appendChild(ele);
     let taskArray = localStorage.getItem("items") ? JSON.parse(localStorage.getItem("items")) : [];
     taskArray.push(data);
     taskArray1 = taskArray
     localStorage.setItem("items", JSON.stringify(taskArray));
     fieldinpt.innerHTML = '';
+    
 
 }
 
