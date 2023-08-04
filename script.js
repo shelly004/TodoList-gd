@@ -2,10 +2,16 @@ let fieldinpt = document.getElementById('inpt');
 let result = document.getElementById("item-list");
 let taskArray1 = localStorage.getItem("items") ? JSON.parse(localStorage.getItem("items")) : [];
 
-taskArray1.forEach(item => {
+taskArray1.forEach((item,index) => {
     var ele = document.createElement('li');
     var text = document.createTextNode(item);
     ele.appendChild(text);
+    var deleteButton = document.createElement('button');
+    deleteButton.innerHTML = 'Done';
+    deleteButton.onclick = function() {
+    removeItem(index);
+    };
+    ele.appendChild(deleteButton);
     result.appendChild(ele);
 
 });
@@ -16,10 +22,17 @@ function addValue(data) {
 
     var ele = document.createElement("li");
     var text = document.createTextNode(data);
-    text+=`<button onclick="handleButtonClick(1)">Click me!</button>`;
     ele.appendChild(text);
-
+    var deleteButton = document.createElement('button');
+    deleteButton.innerHTML = 'complete';
+    deleteButton.onclick = function() {
+    removeItem();
+    };
+    ele.appendChild(deleteButton);
     result.appendChild(ele);
+
+
+
     let taskArray = localStorage.getItem("items") ? JSON.parse(localStorage.getItem("items")) : [];
     taskArray.push(data);
     taskArray1 = taskArray
@@ -34,6 +47,11 @@ function addItem() {
     addValue(fieldinpt.value);
     console.log(taskArray1);
 
+}
+function removeItem(index) {
+    taskArray1.splice(index, 1);
+    localStorage.setItem("items", JSON.stringify(taskArray1));
+    renderItems();
 }
 
 
